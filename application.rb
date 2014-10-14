@@ -36,17 +36,13 @@ class Application < Sinatra::Base
 
   post '/orders.json' do
 
-    message = "#{params[:order][:name]}. #{params[:order][:phone]}"
-
-    if params[:order][:form_id] == '1'
-      subject = I18n.t('email.title1', locale: 'ru')
-    elsif params[:order][:form_id] == '2'
-      subject = I18n.t('email.title2', locale: 'ru')
-    end
+    message = "#{params[:order][:username]}. #{params[:order][:phone]}. #{params[:order][:email]}"
+    message += "\n \n"
+    message += params[:order][:message]
 
     Pony.mail ({
       to: 'abardacha@gmail.com',
-      subject: subject,
+      subject: I18n.t('email.title', locale: 'ru'),
       body: message,
       via: :smtp,
       via_options: {
