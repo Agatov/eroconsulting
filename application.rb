@@ -41,7 +41,7 @@ class Application < Sinatra::Base
     message += params[:order][:message]
 
     Pony.mail ({
-      to: 'abardacha@gmail.com',
+      to: 'abardacha@gmail.com, kostyadt@gmail.com',
       subject: I18n.t('email.title', locale: 'ru'),
       body: message,
       via: :smtp,

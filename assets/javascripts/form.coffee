@@ -67,5 +67,5 @@ window.shake = (field, i) ->
 
 
 window.reachGoal = (goal) ->
-#  yaCounter24427955.reachGoal goal
+  yaCounter26620161.reachGoal goal
 
