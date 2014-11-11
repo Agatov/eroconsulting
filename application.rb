@@ -34,6 +34,10 @@ class Application < Sinatra::Base
     haml :index
   end
 
+  get '/public/topsalon_plan_razvitiya.pdf' do
+    send_file File.join('public', 'topsalon_plan_razvitiya.pdf')
+  end
+
   post '/orders.json' do
 
     message = "#{params[:order][:username]}. #{params[:order][:phone]}. #{params[:order][:email]}"
